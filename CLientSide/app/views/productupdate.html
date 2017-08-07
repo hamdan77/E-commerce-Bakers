@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="row" >     
+       
+        <div class="item  col-xs-6 col-lg-12 col-sm-12" >
+     
+        
+        <!---->
+             <div class="media" >
+                 
+                    <div class="media-left media-middle">
+                        <a href="#">
+                        <img class="media-object img-thumbnail"
+                         ng-src={{dish.image}} alt="Uthappizza">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h2 class="media-heading">{{dish.name}}
+                         <span class="label label-danger">{{dish.label}}</span>
+                         <span class="badge">{{dish.price | currency}}</span></h2>
+                         <p>{{dish.description}}</p>
+                         
+                    </div>
+                
+                </div>
+        <!---->
+        </div>
+      
+        
+        
+</div>
+</div>
+
+<div class="container" ng-submit="update()" >
+      
+    <div class="row ">
+        <div class="col-sm-2 ">
+     <label>Product Name</label>
+         </div>
+    <div class="col-sm-6">
+          <input type="text" ng-model="dish.name">
+        </div>     
+    </div>
+    
+    <div class="row ">
+    <div class="col-sm-2">
+                     <label>Product Category</label>
+                    </div>
+        <div class="col-sm-6">
+        <input type="text" ng-model="dish.category">        
+        </div>        
+    </div>
+    
+    <div class="row ">
+    <div class="col-sm-2">
+                <label>label</label>
+                </div>
+             <div class="col-sm-6">
+         <input type="text" ng-model="dish.label">
+        </div>
+       
+        
+        
+    </div>
+    
+    <div class="row">
+    <div class="col-sm-2">
+   
+                <label>Price</label>
+               </div> 
+<div class="col-sm-6">
+       <input type="text" ng-model="dish.price">  
+        </div>              
+        
+        
+        
+    </div>
+    
+    
+    <div class="row ">
+    <div class="col-sm-2">
+    
+                <label>Description</label>
+              
+         </div>
+        <div class="col-sm-10 col-lg-10">
+         
+            <textarea ng-model="dish.description" ></textarea>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-sm-1 col-sm-offset-2">
+        <button type="submit" ng-click="update()"  class="btn btn-primary ">Primary</button>
+        </div>
+    
+    </div>
+  
+    
+</div>
+
+

@@ -1,0 +1,100 @@
+<div class="container">
+   
+    <div class="row">
+                <h2>Cake Base</h2>
+        <div  ng-repeat="base in circleCakes.base">
+
+              <div class="col col-sm-4 col-md-4 col-lg-4">
+                <label class="row">{{base.name}}</label>
+                <a class="row" ng-click="base1(base.name)"><img id={{base.name}} ng-src={{base.image}} width="50" height="50" alt="" /></a>
+              </div>
+
+   
+      
+      
+  </div>  
+      
+        
+        
+        
+    </div>
+   
+    <div class="row">
+      <h2>Cake Top</h2>
+        <div  ng-repeat="top in circleCakes.top">
+
+              <div class="col col-sm-2 col-md-2 col-lg-2">
+                <label class="row">{{top.name}}</label>
+               <a class="row" ng-click="top1(top.name)"><img id={{top.name}} ng-src={{top.image}} alt="" width="50" height="50"/></a>
+                  
+              </div>
+       
+  </div>  
+    </div>
+    
+        <div class="row">
+        
+        <h2>Cake Walls</h2>
+        <div  ng-repeat="wall in circleCakes.side">
+
+              <div class="col col-sm-2 col-md-2 col-lg-2">
+                <label class="row">{{wall.name}}</label>
+               <a class="row" ng-click="walls(wall.name)"><img id={{wall.name}} ng-src={{wall.image}} alt="" width="50" height="50"/></a>
+                  
+              </div>
+        </div>
+    </div>
+     <div class="row">
+        
+        <h2>Cake Border</h2>
+        <div  ng-repeat="border in circleCakes.border">
+
+              <div class="col col-sm-2 col-md-2 col-lg-2">
+                <label class="row">{{border.name}}</label>
+               <a class="row" ng-click="borders(border.name)"><img id={{border.name}} ng-src={{border.image}} alt="" width="50" height="50"/></a>
+                  
+              </div>
+        </div>
+    </div>
+    
+ <h3>Your Creation</h3>
+
+<canvas id="myCanvas" width="250" height="300"
+style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+    function my(ss){
+        
+        console.log("Iam clicked");
+    }
+function myCanvas() {
+   console.log("Iam clicked");
+    var c = document.getElementById("myCanvas");
+     var img = document.getElementById("top");
+    var ctx = c.getContext("2d");
+       
+     ctx.drawImage(img, 10, 50, 150, 70);
+     
+    
+}
+function myCanvas2() {
+    
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("cakeBase");
+   // ctx.drawImage(img,80,10);
+      ctx.drawImage(img, 30, 80, 170, 50);
+}
+</script>
+

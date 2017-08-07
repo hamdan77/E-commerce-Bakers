@@ -1,0 +1,226 @@
+<div class="container">
+ <!--
+    <div class="row row-content" >
+        
+       
+
+        <div class="col-xs-12">
+            <h1>{{dish.name}}</h1>
+            <div class="main-img">
+    <img id="main" ng-src={{selectedDish}} width="50" height="50" >
+</div>
+                <button class="btn btn-xs btn-primary pull-right"
+                    type="button" ui-sref="app.home">
+                    Back to Menu
+                </button>            
+            </div>
+        
+       
+<!--
+        <div class="col-xs-12"  >
+              <div class="thumbs"  ng-repeat="dish in dishes  ">
+    <img ng-src={{dish.image}} width="50" height="50"/>
+        </div>
+ 
+    <div ng-repeat="comment in dish.comments">
+            <label>{{comment.rating}}</label>
+            </div>
+
+</div>
+dd
+
+        
+<div class="thumbs" >
+    <button>Back </button>
+        <img ng-click="selectDish(img)"  ng-repeat="img in sliderImages" src={{img}} width="50" height="50">
+    <button ng-click="nextSlider()">Next </button>
+</div>
+    </div>
+
+
+  <div class="row-content">
+    <div  >
+   
+        <img src="http://lorempixel.com/400/200/" >
+   
+</div>
+    <div class="main-img">
+    <img id="main"  src="" width="100%"  >
+</div>
+        
+    </div>
+
+    -->
+    
+    
+    <div class=" row row-content">
+        <div class="col-sm-6 col-md-6 col-lg-6"> 
+        
+     <div  id="slides_control">
+    <div >
+      <carousel interval="myInterval">
+        <slide class="thumbs" ng-repeat="slide in sliderImages" active=slide.active>
+           
+          <img ng-src={{slide.image}}>
+          <div class="carousel-caption">
+            <h4>Slide {{$index+1}}</h4>
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
+  
+        
+        
+        </div>
+     
+        
+        <div class="col-sm-6 col-lg-6 col-md-6">
+            <button class="btn btn-xs btn-primary pull-right"
+                    type="button" ui-sref="app">
+                    Back to Menu
+                </button> 
+        <h2 class="media-heading">{{dish.name}} 
+                        <span class="label label-danger">{{dish.label}}</span> 
+                        <span class="badge">{{dish.price/100 | currency}}</span></h2>
+                        <p>{{dish.description}}</p>
+             <a class="btn btn-success" ng-controller='homeController' ng-click="Addtocart(dish)" >Add to cart</a>
+        </div>
+       
+    </div>
+  
+    <div class="row-content">
+     <div class="col-xs-9 col-xs-offset-1">
+        
+                   <h4>Customer Comments &nbsp;&nbsp;&nbsp;
+                       <small>Sort by: &nbsp; 
+                        <p>    <input type="text" ng-model="orderText"></p>   
+                       </small></h4>
+                    <ul class="list-unstyled">
+                        <li ng-repeat="comment in dish.comments | orderBy:orderText">
+                          <blockquote>
+                             <p>{{comment.rating}} Stars</p>
+                             <p>{{comment.comment}}</p>
+                             <footer>{{comment.postedBy.firstname}} {{comment.postedBy.lastname}}, {{comment.updatedAt | date:'MMM. dd, yyyy'}}</footer>
+                          </blockquote>
+                        </li>
+                    </ul>
+            </div>
+        
+    <div class="col-xs-9 col-xs-offset-1">
+                    <ul class="list-unstyled" ng-show="commentForm.$valid && !commentForm.$pristine">
+                        <li>
+                          <blockquote>
+                             <p>{{mycomment.rating}} Stars</p>
+                             <p>{{mycomment.comment}}</p>
+                          </blockquote>
+                        </li>
+                    </ul>
+                <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate>
+                    <div class="form-group">
+                       <label for="numpeople" class="col-sm-2 control-label">
+                        Number of Stars</label>
+                        <div class="col-sm-10">
+                            <label class="radio-inline">
+                            <input type="radio" name="rating" ng-model="mycomment.rating"
+                             id="rating1" value=1> 1
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="rating" ng-model="mycomment.rating"
+                                 id="rating2" value=2> 2
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="rating" ng-model="mycomment.rating"
+                                 id="rating3" value=3> 3
+                            </label>
+                             <label class="radio-inline">
+                                <input type="radio" name="rating" ng-model="mycomment.rating"
+                                 id="rating4" value=4> 4
+                            </label>
+                             <label class="radio-inline">
+                                <input type="radio" name="rating" ng-model="mycomment.rating"
+                                 id="rating5" value=5 checked> 5
+                            </label>
+                        </div>
+                    </div>                    
+                    <div class="form-group"  ng-class="{ 'has-error' : commentForm.comments.$error.required && !commentForm.comments.$pristine }">
+                        <label for="comments" class="col-sm-2 control-label">Your Comments</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="12" name="comments"
+                                ng-model="mycomment.comment" required>
+                            </textarea>
+                         <span ng-show="commentForm.comments.$error.required && !commentForm.comments.$pristine" class="help-block">Your comments are required.</span>
+                       </div>
+                    </div> 
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary" ng-disabled="commentForm.$invalid">Submit Comment</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+    
+    
+    
+</div>
+
+
+
+       
+
+
+
+<style>
+    .thumbs {
+    display: inline-block;
+    vertical-align: top;
+        
+}
+
+.thumbs img {
+    display: block;
+}
+
+.main-img {
+    display: inline-block;
+}
+    </style>
+
+<script>
+  
+   $('.thumbs img').hover(function() {
+   var url = $(this).attr('src');
+ $('#main').attr('src', url);
+});
+    </script>
+
+
+
+
+
+<style>
+
+#slides_control > div{
+   
+  height: 500px;
+}
+img{
+    
+  padding: 20px;
+  width: 90%;,
+    height: 100%
+}
+#slides_control {
+  position:absolute;
+  width: 300px;
+  left:50%;
+ 
+ margin-left:-200px;
+}
+</style>
+
+
+
+
+ 

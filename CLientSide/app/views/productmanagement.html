@@ -1,0 +1,138 @@
+
+
+<div class="container" ng-controller="addProductController">
+    <di class="row">
+    <h2> Add new product</h2>
+    
+    </di>
+ 
+    <div class="row ">
+        <div class="col-sm-2 ">
+     <label>Product Name</label>
+         </div>
+    <div class="col-sm-6">
+          <input type="text" ng-model="dish.name">
+       
+        
+        </div>     
+    </div>
+    
+    <div class="row ">
+    <div class="col-sm-2">
+                     <label>Product Category</label>
+                    </div>
+        <div class="col-sm-6">
+        <input type="text" ng-model="dish.category">        
+        </div>        
+    </div>
+    
+    <div class="row ">
+    <div class="col-sm-2">
+                <label>label</label>
+                </div>
+             <div class="col-sm-6">
+         <input type="text" ng-model="dish.label">
+        </div>
+       
+        
+        
+    </div>
+    
+     
+    
+    <div class="row">
+    <div class="col-sm-2">
+   
+                <label>Price</label>
+               </div> 
+<div class="col-sm-6">
+       <input type="text" ng-model="dish.price">  
+        </div>              
+        
+        
+        
+    </div>
+    
+    
+    <div class="row ">
+    <div class="col-sm-2">
+    
+                <label>Description</label>
+              
+         </div>
+        <div class="col-sm-10 col-lg-10">
+         
+            <textarea ng-model="dish.description" ></textarea>
+        </div>
+        
+    </div>
+     <div class="row ">
+    <div class="col-sm-4">
+         <label>Image Link</label>
+             <input type = "file" onchange="angular.element(this).scope().filesChanged(this)"multiple/>
+
+
+
+<li ng-repeat="file in files" ng-model="dish.image">{{file.name}} </li>
+
+        </div>
+       
+         <textarea ng-model="dish.image"  >{{dish.image}}</textarea>
+        
+    </div>
+    <div class="row">
+        <div class="col-sm-1 col-sm-offset-2">
+        <button type="submit" ng-click="add()"  class="btn btn-primary ">Add to Inventory</button>
+        </div>
+    
+    </div>
+  
+    
+<div class="row row-content">
+    <div class="col-sm-12">
+    <h1>Product will appear like this</h1>
+        <div class="item  col-xs-6 col-lg-12 col-sm-12" >
+         <div class="thumbnail">
+             <div class="caption">
+                    
+                    <h4 class="group inner list-group-item-heading">
+  {{dish.name}}</h4>
+                    <p class="group inner list-group-item-text">
+                        {{dish.description}}</p>
+                    <p class="group inner list-group-item-text">
+                        {{dish.label}}</p>
+                     <p class="group inner list-group-item-text">
+                        {{dish.category}}</p>
+                
+                 
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <p class="lead">
+                                {{dish.price | currency}}</p>
+                 <p class="group inner list-group-item-text">
+                        {{dish.image}}</p>
+                 
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+         </div>
+        
+        
+    </div>
+
+    
+    </div>
+
+
+
+
+
+
+
+<div>
+ <input type="text" ng-model="aeman.name">
+<p>{{aeman.name}}</p>
+</div>

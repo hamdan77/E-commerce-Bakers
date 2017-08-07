@@ -1,0 +1,110 @@
+<div class='container'> 
+<div class="row">
+  
+    <div class="col-sm-12 col-lg-12">
+    
+   <div class="" ng-repeat="data in pname">
+       
+       <label>{{data.name}}</label>
+       <label>{{data.name}}</label>
+       
+       
+        </div>
+   
+        
+       
+        
+        
+        
+    </div>
+    </div>
+    
+    
+</div>
+
+
+<div class="container">
+   
+        <div class="col-sm-12">
+          
+        <h2>Shopping Cart</h2>
+            
+        </div>
+     
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                   
+                    <tr  ng-repeat="data in pname">
+                        
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" ng-src={{data.image}} style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="#">{{data.name}}</a></h4>
+                                <h5 class="media-heading"> by <a href="#">{{data.category}}</a></h5>
+                                <span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <input type="" class="form-control" id=""  ng-model="data.Qty" >
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{data.price}}</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center" ><strong>{{data.Qty*data.price}}</strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <button type="button" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        </button></td>
+                        <script>
+                        
+                        </script>    
+                        
+                    </tr>
+                 
+                </tbody>
+                 
+                <tfoot>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td><h3>Total</h3></td>
+                        <td class="text-right"><h5><strong></strong></h5><h3>{{ getTotal() }}</h3></td>
+                    </tr>
+                    <tr>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>   </td>
+                        <td>
+                        <button type="button" ng-click="checking()" class="btn btn-default">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+                        </button></td>
+                        <td>
+                        <button type="button" ng-click="postorder()" class="btn btn-success">
+                            Checkout <span class="glyphicon glyphicon-play"></span>
+                        </button></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div >
+         <button type="button" ng-click="checking()" class="btn btn-default">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> show
+                        </button>
+            
+            </div>
+
+        </div>
+    </div>
+</div>
+
